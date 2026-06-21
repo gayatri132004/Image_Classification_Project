@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Image Classifier</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/home.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fas fa-brain"></i>
+        AI Image Classifier
+    </div>
+
+    <div class="nav-right">
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="/dashboard" class="dashboard-btn">
+            Dashboard
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>
+AI Image
+<br>
+<span>Classification</span>
+</h1>
+
+<h3>
+Deep Learning Powered •
+Cat vs Dog Recognition
+</h3>
+
+<p>
+Upload an image and our advanced CNN model
+will predict whether it's a Cat 🐱 or Dog 🐶
+with high accuracy and real-time analysis.
+</p>
+
+<div class="hero-buttons">
+
+<a href="/dashboard" class="primary-btn">
+🚀 Launch Dashboard
+</a>
+
+<a href="#features" class="secondary-btn">
+👁 Explore Project
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+    <img
+    src="{{ url_for('static', filename='images/cat_dog.png') }}"
+    alt="Cat Dog">
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats-glass">
+
+<div class="glass-wrapper">
+
+<div class="glass-item">
+<div class="icon blue">🖼</div>
+<h2>1000+</h2>
+<p>Total Images</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="glass-item">
+<div class="icon purple">🐱</div>
+<h2>500</h2>
+<p>Cat Images</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="glass-item">
+<div class="icon orange">🐶</div>
+<h2>500</h2>
+<p>Dog Images</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="glass-item">
+<div class="icon cyan">📈</div>
+<h2>95%+</h2>
+<p>Accuracy</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+<h2 class="section-title">
+What This Project Offers
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<i class="fas fa-brain"></i>
+<h3>CNN Deep Learning</h3>
+<p>
+Built using Convolutional Neural Networks.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-bolt"></i>
+<h3>Instant Prediction</h3>
+<p>
+Real-time image classification.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-chart-bar"></i>
+<h3>Advanced Analytics</h3>
+<p>
+Accuracy, Loss Graphs & Reports.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-database"></i>
+<h3>Custom Dataset</h3>
+<p>
+1000 Images Dataset.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-shield-alt"></i>
+<h3>Flask Web App</h3>
+<p>
+Interactive & Responsive Interface.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TECH STACK -->
+
+<section id="tech" class="tech-stack">
+
+<h2 class="section-title">
+Built With
+</h2>
+
+<div class="tech-icons">
+
+<span>Python</span>
+<span>TensorFlow</span>
+<span>Flask</span>
+<span>NumPy</span>
+<span>Scikit-Learn</span>
+<span>Matplotlib</span>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="about-section">
+
+<div class="container">
+
+<h2 class="section-title">
+About Project
+</h2>
+
+<div class="about-card">
+
+<div class="about-left">
+
+<h3>AI Image Classification using CNN</h3>
+
+<p>
+This project uses Deep Learning and Computer Vision
+techniques to classify uploaded images as either
+Cat 🐱 or Dog 🐶.
+
+The model is built using TensorFlow and Keras
+with a Convolutional Neural Network (CNN)
+architecture trained on a custom dataset
+containing 1000+ images.
+
+Users can upload images through an interactive
+Flask web application and receive real-time
+predictions with confidence scores.
+</p>
+
+</div>
+
+<div class="about-right">
+
+<div class="about-box">
+🧠 CNN Model
+</div>
+
+<div class="about-box">
+📊 95%+ Accuracy
+</div>
+
+<div class="about-box">
+🐱 Cat vs Dog
+</div>
+
+<div class="about-box">
+🚀 Flask Deployment
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact-section">
+
+<h2 class="section-title">
+Contact
+</h2>
+
+<div class="contact-card">
+
+<h3>Get In Touch</h3>
+
+<p>
+For project demonstrations, collaborations,
+or AI/ML discussions feel free to connect.
+</p>
+
+<div class="contact-grid">
+
+<div>
+📧 Email
+<br>
+chandgudegayatri@gmail.com
+</div>
+
+<div>
+💼 LinkedIn
+<br>
+linkedin.com/in/gayatrichandgude
+</div>
+
+<div>
+🐙 GitHub
+<br>
+github.com/gayatri132004
+</div>
+
+</div>
+
+<a href="mailto:gayatri@example.com"
+class="contact-btn">
+
+Send Message
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 AI Image Classification Project
+</footer>
+
+</body>
+</html>
