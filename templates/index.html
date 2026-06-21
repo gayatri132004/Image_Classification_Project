@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Image Classification Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo-area">
+
+<div class="logo-icon">
+🧠
+</div>
+
+<div>
+
+<h3>AI Image Classifier</h3>
+
+</div>
+
+</div>
+
+<div class="sidebar-title">
+PREDICTION PANEL
+</div>
+
+<div class="upload-card">
+
+<form method="POST" enctype="multipart/form-data">
+
+<label class="upload-label">
+Upload Image
+</label>
+
+<div class="drop-box">
+
+<i class="fas fa-cloud-upload-alt upload-icon"></i>
+
+<p>Drag & Drop an image here</p>
+
+<p>or</p>
+
+<input
+type="file"
+name="image"
+class="form-control"
+accept="image/*"
+required>
+
+</div>
+
+<button
+class="btn predict-btn w-100 mt-3">
+
+🚀 Predict Image
+
+</button>
+
+</form>
+
+</div>
+
+{% if img_path %}
+
+<div class="image-preview">
+
+<h5>UPLOADED IMAGE</h5>
+
+<img
+src="{{ img_path }}"
+class="uploaded-image">
+
+</div>
+
+{% endif %}
+
+<div class="tips-box">
+
+<h5>💡 TIPS</h5>
+
+<ul>
+
+<li>Upload a clear image</li>
+
+<li>Cat or Dog only</li>
+
+<li>Avoid blurry photos</li>
+
+<li>Best results with front view</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- MAIN AREA -->
+
+<div class="main-content">
+
+<!-- TOP HEADER -->
+
+<div class="topbar">
+
+<div>
+
+<h1>
+AI Image Classification Dashboard
+</h1>
+
+<p>
+Deep Learning Based Cat vs Dog Classification using CNN
+</p>
+
+</div>
+
+<div>
+
+<button class="btn btn-outline-light me-2">
+⚙ CNN Model
+</button>
+
+<a href="{{ url_for('landing') }}"
+class="home-btn">
+🏠 Home
+</a>
+
+</div>
+
+</div>
+
+<!-- PREDICTION RESULT -->
+
+{% if result %}
+
+<div class="prediction-panel">
+
+    <div class="prediction-left">
+        <div class="animal-icon">
+            {% if "Dog" in result %}
+            🐶
+            {% else %}
+            🐱
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="prediction-right">
+
+        <h4>Prediction Result</h4>
+
+        <h1>{{ result }}</h1>
+
+        <div class="d-flex justify-content-between">
+<h3>Confidence: {{ confidence }}%</h3>
+<span>{{ confidence }}%</span>
+</div>
+
+        <div class="progress prediction-progress">
+
+            <div
+            class="progress-bar"
+            style="width:{{ confidence }}%">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+<!-- STATS -->
+
+<div class="row mt-4">
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<div class="stats-icon blue">
+🖼
+</div>
+
+<div>
+
+<h2>1000</h2>
+
+<p>Total Images</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<div class="stats-icon green">
+🐱
+</div>
+
+<div>
+
+<h2>500</h2>
+
+<p>Cat Images</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<div class="stats-icon purple">
+🐶
+</div>
+
+<div>
+
+<h2>500</h2>
+
+<p>Dog Images</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<div class="stats-icon orange">
+🧠
+</div>
+
+<div>
+
+<h2>CNN</h2>
+
+<p>Model Used</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- GRAPH SECTION -->
+
+<div class="dashboard-grid">
+
+    <!-- Accuracy Loss -->
+    <div class="glass-card accuracy-card">
+
+        <div class="card-title">
+            📊 Accuracy & Loss Graph
+        </div>
+
+        <img
+        src="{{ url_for('static', filename='graphs/accuracy_loss.png') }}"
+        class="graph-img">
+
+    </div>
+
+    <!-- Dataset Distribution -->
+    <div class="glass-card pie-card">
+
+        <div class="card-title">
+            📈 Dataset Distribution
+        </div>
+
+        <img
+        src="{{ url_for('static', filename='graphs/dataset_distribution.png') }}"
+        class="pie-img">
+
+    </div>
+
+</div>
+
+
+<!-- BOTTOM SECTION -->
+
+<div class="dashboard-grid bottom-grid">
+
+    <!-- Confusion Matrix -->
+
+    <div class="glass-card confusion-card">
+
+        <div class="card-title">
+            🧩 Confusion Matrix
+        </div>
+
+        <img
+        src="{{ url_for('static', filename='graphs/confusion_matrix.png') }}"
+        class="confusion-img">
+
+    </div>
+
+
+    <!-- Report -->
+
+    <div class="glass-card report-card">
+
+        <div class="card-title">
+            📄 Classification Report
+        </div>
+
+        <div class="report-box">
+
+<pre>{{ report }}</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- ABOUT MODEL -->
+        <div class="about-card">
+
+            
+
+<h3>
+<i class="fas fa-info-circle"></i>
+About Model
+</h3>
+
+<div class="about-grid">
+
+<div>🧠 CNN Architecture</div>
+<div>🗂 1000 Images Dataset</div>
+<div>🐱 500 Cat Images</div>
+<div>🐶 500 Dog Images</div>
+<div>⚙ TensorFlow + Keras</div>
+<div>🚀 Flask Deployment</div>
+
+</div>
+
+</div>
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            © 2026 AI Image Classification Computer Vision Project |
+            Built using Flask, TensorFlow & Keras
+
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
