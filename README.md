@@ -224,4 +224,4 @@ Through this project, I learned:
 Gayatri Chandgude
 
 GitHub:
-https://github.com/gayatri132004
+https://github.com/gayatrichandgude
